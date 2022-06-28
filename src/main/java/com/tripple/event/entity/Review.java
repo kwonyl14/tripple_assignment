@@ -8,6 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "reviewUniqueIndex",
+                        columnNames = {"user_id", "place_id"}
+                )
+        }
+)
 public class Review extends BaseEntity implements Persistable<String>{
 
     @Id
