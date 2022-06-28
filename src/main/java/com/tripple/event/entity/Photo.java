@@ -28,6 +28,10 @@ public class Photo extends BaseEntity implements Persistable<String> {
         return this.id;
     }
 
+    public Review getReview() {
+        return review;
+    }
+
     @Override
     public boolean isNew() {
         return getCreatedTime() == null;
