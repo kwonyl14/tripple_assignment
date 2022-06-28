@@ -11,6 +11,18 @@ public class Pointlog {
     private int value;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "review_id")
+    private Review review;
+
+    public int getValue() {
+        return value;
+    }
+
+    public Pointlog() {
+    }
+
+    public Pointlog(int value, Review review) {
+        this.value = value;
+        this.review = review;
+    }
 }
