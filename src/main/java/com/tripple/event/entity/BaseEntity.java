@@ -9,6 +9,10 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+/**
+ * @FileName : BaseEntity
+ * @Class 설명 : 공통 속성 정의 엔티티
+ */
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
 public class BaseEntity {
