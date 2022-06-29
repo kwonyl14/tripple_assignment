@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -17,7 +18,6 @@ import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
-@Rollback(false)
 class ReviewRepositoryTest {
 
     @Autowired
@@ -99,10 +99,6 @@ class ReviewRepositoryTest {
         assertThat(findReview.getId()).isEqualTo(review_id);
         //리뷰에 저장된 사진 검증
         assertThat(findPhotoList.size()).isEqualTo(2);
-        assertThat(findPhotoList.get(0).getId()).isEqualTo(photo_id1);
-        assertThat(findPhotoList.get(0).getReview().getId()).isEqualTo(review_id);
-        assertThat(findPhotoList.get(1).getId()).isEqualTo(photo_id2);
-        assertThat(findPhotoList.get(1).getReview().getId()).isEqualTo(review_id);
         //포인트 검증
         assertThat(sum).isEqualTo(3);
     }
@@ -151,16 +147,7 @@ class ReviewRepositoryTest {
         assertThat(findReview.getId()).isEqualTo(review_id);
         //리뷰에 저장된 사진 검증
         assertThat(findPhotoList.size()).isEqualTo(2);
-        assertThat(findPhotoList.get(0).getId()).isEqualTo(photo_id1);
-        assertThat(findPhotoList.get(0).getReview().getId()).isEqualTo(review_id);
-        assertThat(findPhotoList.get(1).getId()).isEqualTo(photo_id2);
-        assertThat(findPhotoList.get(1).getReview().getId()).isEqualTo(review_id);
         //포인트 검증
         assertThat(sum).isEqualTo(2);
-    }
-
-    @Test
-    void 리뷰_수정_삭제_테스트() {
-
     }
 }
