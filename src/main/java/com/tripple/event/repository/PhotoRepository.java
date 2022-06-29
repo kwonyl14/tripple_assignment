@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PhotoRepository extends JpaRepository<Photo, String> {
     List<Photo> findByReview(Review review);
+    int countByReview(Review review);
 }
