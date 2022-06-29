@@ -5,13 +5,13 @@ import javax.persistence.*;
 @Entity
 public class Pointlog {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pointlog_id")
     private Long id;
     private int value;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "review_id")
+    @JoinColumn(name = "review_id", nullable = false)
     private Review review;
 
     public int getValue() {

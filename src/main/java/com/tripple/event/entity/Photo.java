@@ -12,7 +12,7 @@ public class Photo extends BaseEntity implements Persistable<String> {
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "review_id")
+    @JoinColumn(name = "review_id", nullable = false)
     private Review review;
 
     public Photo() {
